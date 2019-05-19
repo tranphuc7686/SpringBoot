@@ -4,14 +4,22 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
+import java.sql.Date;
+import java.sql.Time;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class VisitDto {
-    public String diagnosis_id;
-    public String patient_id;
-    public String problems;
+public class HisVisitDto {
+
+    private Date date;
+
+    private Time time;
+
+    private String problems;
+
+    private String icdName;
 }

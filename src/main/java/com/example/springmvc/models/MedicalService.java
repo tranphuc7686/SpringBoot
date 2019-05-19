@@ -16,9 +16,9 @@ public class MedicalService {
     @Column
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "medicalServices",fetch = FetchType.LAZY)
     @JsonIgnore
-    private LabTest labTest;
+    private List<LabTest> labTestes;
 
 
     public int getId() {
@@ -38,11 +38,11 @@ public class MedicalService {
     }
 
 
-    public LabTest getLabTest() {
-        return labTest;
+    public List<LabTest> getLabTestes() {
+        return labTestes;
     }
 
-    public void setLabTest(LabTest labTest) {
-        this.labTest = labTest;
+    public void setLabTestes(List<LabTest> labTestes) {
+        this.labTestes = labTestes;
     }
 }

@@ -20,7 +20,12 @@ public class LabTest {
     @Column
     private Time time;
 
-    @OneToMany(mappedBy = "labTest",fetch = FetchType.LAZY)
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "LabTest_MedicalService",
+            joinColumns = { @JoinColumn(name = "labTest_id") },
+            inverseJoinColumns = { @JoinColumn(name = "medicalservice_id") }
+    )
     @JsonIgnore
     private List<MedicalService> medicalServices;
 
